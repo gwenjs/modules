@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["version", "generatedAt", "modules"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "const": "1" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name", "displayName", "description", "npm",
+          "repo", "website", "category", "type", "deprecated", "compatibility"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9\\-]*$",
+            "description": "Unique kebab-case identifier"
+          },
+          "displayName": { "type": "string", "minLength": 1, "maxLength": 50 },
+          "description": { "type": "string", "minLength": 1, "maxLength": 140 },
+          "npm": {
+            "type": "string",
+            "pattern": "^(@[a-z0-9-~][a-z0-9-._~]*/)?[a-z0-9-~][a-z0-9-._~]*$"
+          },
+          "repo": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$",
+            "description": "owner/repo format"
+          },
+          "website": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["Physics", "Audio", "Rendering", "Debug", "Input", "Networking", "UI", "Other"]
+          },
+          "type": { "type": "string", "enum": ["official", "community"] },
+          "deprecated": { "type": "boolean" },
+          "compatibility": {
+            "type": "object",
+            "required": ["gwen"],
+            "additionalProperties": false,
+            "properties": {
+              "gwen": { "type": "string", "description": "semver range" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
