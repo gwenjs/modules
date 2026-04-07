@@ -1,0 +1,86 @@
+name: Module Submission
+description: Submit a GWEN module for inclusion in the registry
+title: "[Module] <your-package-name>"
+labels: ["module-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting a module! Fill in all required fields below.
+        A maintainer will review and ask you to open a PR if approved.
+
+  - type: input
+    id: npm
+    attributes:
+      label: npm package name
+      placeholder: "@your-org/gwen-my-module"
+    validations:
+      required: true
+
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub repository (owner/repo)
+      placeholder: "your-org/gwen-my-module"
+    validations:
+      required: true
+
+  - type: input
+    id: displayName
+    attributes:
+      label: Display name
+      description: Human-readable name, max 50 characters
+      placeholder: "My Module"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: One sentence describing what this module does (max 140 characters)
+      placeholder: "Adds X support to GWEN."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Physics
+        - Audio
+        - Rendering
+        - Debug
+        - Input
+        - Networking
+        - UI
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: compatibility
+    attributes:
+      label: Compatible GWEN version range (semver)
+      placeholder: ">=0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: website
+    attributes:
+      label: Documentation URL (optional)
+      placeholder: "https://docs.example.com"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Package is published on npm
+          required: true
+        - label: Repository has a README
+          required: true
+        - label: Compatible GWEN version is documented
+          required: true
