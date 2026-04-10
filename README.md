@@ -18,7 +18,7 @@ gwen add physics2d
 
 Explore all available modules on the registry website:
 
-**[gwenjs.github.io/modules](https://gwenjs.github.io/modules)**
+**[gwenjs.github.io/modules](https://gwenjs.github.io/modules/)**
 
 ## Contributing
 
