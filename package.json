@@ -1,7 +1,11 @@
 {
-  "name": "gwenjs-modules",
-  "private": true,
+  "name": "@gwenjs/modules",
+  "private": false,
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gwenjs/modules"
+  },
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "docs:dev": "vitepress dev docs",
